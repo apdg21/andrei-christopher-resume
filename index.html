@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Andrei Christopher De Guzman · resume</title>
     <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -18,7 +18,7 @@
         body {
             background: linear-gradient(145deg, #e9f0fc 0%, #f1f7ff 100%);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            padding: 2rem 1.5rem;
+            padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -37,34 +37,64 @@
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 3.5rem 3.5rem 3rem 3rem;
+            border-radius: 2rem;
             box-shadow: 0 30px 60px rgba(0, 10, 30, 0.2), 0 10px 30px rgba(0, 20, 40, 0.1), inset 0 1px 2px rgba(255,255,255,0.6);
-            padding: 2.5rem 2.8rem;
+            padding: 1.5rem;
             border: 1px solid rgba(255,255,255,0.5);
             transition: all 0.3s;
+        }
+
+        @media (min-width: 768px) {
+            .glass-card {
+                padding: 2.5rem 2.8rem;
+                border-radius: 3.5rem 3.5rem 3rem 3rem;
+            }
         }
 
         /* profile header row */
         .profile-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
             align-items: center;
-            margin-bottom: 2.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .profile-row {
+                flex-direction: row;
+                gap: 2rem;
+                align-items: center;
+                text-align: left;
+                margin-bottom: 2.8rem;
+            }
         }
 
         .avatar-frame {
             flex-shrink: 0;
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
             background: linear-gradient(135deg, #c0d9f5, #a7c0f0);
             box-shadow: 0 25px 35px -10px rgba(46, 91, 154, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
             animation: morph 8s ease-in-out infinite;
             border: 3px solid white;
+        }
+
+        @media (min-width: 768px) {
+            .avatar-frame {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         @keyframes morph {
@@ -73,39 +103,58 @@
             100% { border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%; }
         }
 
-        .avatar-placeholder {
-            font-size: 5rem;
-            color: white;
-            filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
-        }
-
         .name-title {
             flex: 1;
+            width: 100%;
         }
 
         .name-title h1 {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(130deg, #162b4d, #2c4875);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .name-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .name-title h1 {
+                font-size: 3rem;
+            }
         }
 
         .badge-jft {
             background: white;
             border-radius: 100px;
-            padding: 0.4rem 1.5rem 0.4rem 1rem;
+            padding: 0.4rem 1rem;
             box-shadow: 0 6px 14px rgba(0, 30, 60, 0.15);
             display: inline-flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 0.6rem;
+            justify-content: center;
+            gap: 0.5rem;
             margin-top: 0.8rem;
             font-weight: 600;
             border: 1px solid rgba(255,255,255,0.8);
             animation: badgeGlow 3s infinite;
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .badge-jft {
+                padding: 0.4rem 1.5rem 0.4rem 1rem;
+                flex-wrap: nowrap;
+            }
         }
 
         @keyframes badgeGlow {
@@ -118,44 +167,70 @@
             background: #11273f;
             color: white;
             border-radius: 40px;
-            padding: 0.3rem 1rem;
-            font-size: 1.2rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 1rem;
             font-weight: 600;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .score-highlight {
+                font-size: 1.2rem;
+                padding: 0.3rem 1rem;
+            }
         }
 
         .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem 2rem;
-            margin: 1.8rem 0 2rem 0;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
             background: rgba(255,255,255,0.5);
-            border-radius: 60px;
-            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            padding: 1.2rem;
             backdrop-filter: blur(4px);
             border: 1px solid white;
+        }
+
+        @media (min-width: 640px) {
+            .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1.2rem 2rem;
+                padding: 0.8rem 2rem;
+                border-radius: 60px;
+            }
         }
 
         .contact-info span {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #1d2b44;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info span {
+                font-size: 0.95rem;
+            }
         }
 
         .contact-info i {
             color: #2c5b9c;
             width: 1.4rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         /* skills / chips */
         .skills-section {
-            margin: 2rem 0 2.5rem 0;
+            margin: 1.5rem 0 2rem;
         }
 
         .skills-section h3, .section-header {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 1rem;
             display: flex;
@@ -164,24 +239,44 @@
             color: #122b44;
             border-bottom: 2px solid rgba(60, 110, 180, 0.3);
             padding-bottom: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .skills-section h3, .section-header {
+                font-size: 1.4rem;
+            }
         }
 
         .chip-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem 1rem;
+            gap: 0.6rem;
+        }
+
+        @media (min-width: 768px) {
+            .chip-list {
+                gap: 0.8rem 1rem;
+            }
         }
 
         .chip {
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(3px);
-            padding: 0.6rem 1.6rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 60px;
             font-weight: 500;
             box-shadow: 0 5px 12px rgba(0, 20, 30, 0.1);
             border: 1px solid rgba(255,255,255,0.7);
             transition: all 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .chip {
+                padding: 0.6rem 1.6rem;
+                font-size: 0.95rem;
+            }
         }
 
         .chip:hover {
@@ -193,24 +288,33 @@
         /* two column layout */
         .two-col {
             display: grid;
-            grid-template-columns: 1.4fr 0.9fr;
-            gap: 2rem;
-            margin: 1.5rem 0 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        @media (max-width: 800px) {
-            .two-col { grid-template-columns: 1fr; }
-            .glass-card { padding: 1.8rem; }
+        @media (min-width: 900px) {
+            .two-col {
+                grid-template-columns: 1.4fr 0.9fr;
+                gap: 2rem;
+            }
         }
 
         .education-card, .work-card {
             background: rgba(255,255,255,0.5);
             backdrop-filter: blur(4px);
-            border-radius: 2rem;
-            padding: 1.8rem;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
             border: 1px solid rgba(255,255,255,0.8);
             box-shadow: 0 12px 25px -12px rgba(0,32,64,0.2);
             transition: transform 0.25s;
+        }
+
+        @media (min-width: 768px) {
+            .education-card, .work-card {
+                padding: 1.8rem;
+                border-radius: 2rem;
+            }
         }
 
         .education-card:hover, .work-card:hover {
@@ -219,16 +323,30 @@
         }
 
         .timeline-item {
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
             position: relative;
-            padding-left: 1.2rem;
+            padding-left: 1rem;
             border-left: 3px solid #3466a3;
         }
 
+        @media (min-width: 768px) {
+            .timeline-item {
+                margin: 1.5rem 0;
+                padding-left: 1.2rem;
+            }
+        }
+
         .timeline-item h4 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #0f263f;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item h4 {
+                font-size: 1.3rem;
+            }
         }
 
         .timeline-item .meta {
@@ -237,93 +355,173 @@
             margin: 0.2rem 0 0.6rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
         }
 
         .jft-result-grid {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 0.8rem 1.2rem;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
             background: rgba(0,0,0,0.02);
             border-radius: 1.4rem;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
+        }
+
+        @media (min-width: 480px) {
+            .jft-result-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem 1.2rem;
+                padding: 1rem 0;
+            }
         }
 
         .jft-cat {
             background: white;
             border-radius: 1.2rem;
-            padding: 0.7rem 1rem;
+            padding: 0.6rem 0.8rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.02);
             font-weight: 500;
             border: 1px solid #dbe5f5;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .jft-cat {
+                padding: 0.7rem 1rem;
+                font-size: 1rem;
+            }
         }
 
         .total-score-big {
-            font-size: 2.3rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #082032;
             background: linear-gradient(145deg, #ecf5ff, #ffffff);
             display: inline-block;
-            padding: 0.2rem 1.5rem;
+            padding: 0.2rem 1.2rem;
             border-radius: 100px;
             margin: 0.6rem 0 1rem;
             border: 1px solid white;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .total-score-big {
+                font-size: 2.3rem;
+                padding: 0.2rem 1.5rem;
+            }
         }
 
         /* work details */
         .work-detail {
-            margin: 1rem 0 1.8rem 1rem;
+            margin: 0.8rem 0 1.2rem 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .work-detail {
+                margin: 1rem 0 1.8rem 1rem;
+            }
         }
 
         .work-detail p {
             margin: 0.5rem 0;
             display: flex;
-            align-items: baseline;
+            align-items: flex-start;
             gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .work-detail p {
+                font-size: 1rem;
+            }
         }
 
         .work-detail i {
             color: #2b5797;
-            width: 1.5rem;
-            font-size: 0.9rem;
+            width: 1.2rem;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .work-detail i {
+                width: 1.5rem;
+                font-size: 0.9rem;
+            }
         }
 
         .bullet-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 10px;
             margin: 1rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .bullet-item {
+                gap: 12px;
+            }
         }
 
         .bullet-item i {
             color: #2e5f9e;
-            font-size: 1rem;
-            margin-top: 0.2rem;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .bullet-item i {
+                font-size: 1rem;
+                margin-top: 0.2rem;
+            }
         }
 
         /* contact form */
         .contact-form {
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             background: rgba(255,255,255,0.45);
             backdrop-filter: blur(8px);
-            padding: 2rem;
-            border-radius: 3rem;
+            padding: 1.5rem;
+            border-radius: 2rem;
             border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        @media (min-width: 768px) {
+            .contact-form {
+                margin-top: 2.5rem;
+                padding: 2rem;
+                border-radius: 3rem;
+            }
         }
 
         .form-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .form-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1.2rem;
+            }
         }
 
         .form-group {
             flex: 1 1 200px;
+            width: 100%;
         }
 
         input, textarea {
             width: 100%;
-            padding: 1rem 1.5rem;
+            padding: 0.9rem 1.2rem;
             border: none;
             border-radius: 50px;
             background: rgba(255,255,255,0.8);
@@ -331,6 +529,13 @@
             border: 1px solid transparent;
             transition: all 0.2s;
             box-shadow: 0 6px 14px rgba(0,10,20,0.05);
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            input, textarea {
+                padding: 1rem 1.5rem;
+            }
         }
 
         input:focus, textarea:focus {
@@ -341,26 +546,37 @@
         }
 
         textarea {
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             resize: vertical;
+            min-height: 100px;
         }
 
         .btn-submit {
             background: #172e48;
             color: white;
             border: none;
-            padding: 1rem 2.8rem;
+            padding: 0.9rem 2rem;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 8px 18px rgba(18, 52, 92, 0.3);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 8px;
             border: 1px solid rgba(255,255,255,0.3);
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .btn-submit {
+                width: auto;
+                padding: 1rem 2.8rem;
+                font-size: 1rem;
+            }
         }
 
         .btn-submit:hover {
@@ -370,9 +586,17 @@
         }
 
         .signature-note {
-            font-size: 0.8rem;
-            margin-top: 0.8rem;
+            font-size: 0.75rem;
+            margin-top: 1rem;
             color: #3a4a66;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .signature-note {
+                font-size: 0.8rem;
+                text-align: left;
+            }
         }
 
         hr {
@@ -394,28 +618,40 @@
 
         footer {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             opacity: 0.7;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Utility classes */
+        .text-break {
+            word-break: break-word;
         }
     </style>
 </head>
 <body>
     <div class="glass-card">
-        <!-- Profile header with image placeholder -->
+        <!-- Profile header with image -->
         <div class="profile-row">
-    <div class="avatar-frame">
-        <img src="profile.jpg" alt="Andrei Christopher De Guzman" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
-    </div>
-    <div class="name-title">
-        <h1>ANDREI CHRISTOPHER<br>DE GUZMAN</h1>
-        <div class="badge-jft">
-            <i class="fas fa-certificate" style="color:#1a4972;"></i> 
-            <span>JFT Basic · Passed 244/250</span>
-            <span class="score-highlight"><i class="fas fa-star"></i> 200基準</span>
+            <div class="avatar-frame">
+                <img src="profile.jpg" alt="Andrei Christopher De Guzman">
+            </div>
+            <div class="name-title">
+                <h1>ANDREI CHRISTOPHER<br>DE GUZMAN</h1>
+                <div class="badge-jft">
+                    <i class="fas fa-certificate" style="color:#1a4972;"></i> 
+                    <span>JFT Basic · Passed 244/250</span>
+                    <span class="score-highlight"><i class="fas fa-star"></i> 200基準</span>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <!-- contact row from details -->
         <div class="contact-info">
@@ -447,10 +683,10 @@
                 <div class="timeline-item">
                     <h4>Accountancy, Business & Management</h4>
                     <div class="meta"><i class="far fa-calendar-alt"></i> August 2019 – June 2021</div>
-                    <p style="font-weight: 500; color:#1d3f6e;">UNIVERSITY OF PERPETUAL HELP SYSTEM DALTA - MOLINO CAMPUS</p>
+                    <p style="font-weight: 500; color:#1d3f6e; font-size: 0.95rem;">UNIVERSITY OF PERPETUAL HELP SYSTEM DALTA - MOLINO CAMPUS</p>
                 </div>
 
-                <h3 class="section-header" style="margin-top: 2rem;"><i class="fas fa-language"></i> Japanese proficiency</h3>
+                <h3 class="section-header" style="margin-top: 1.5rem;"><i class="fas fa-language"></i> Japanese proficiency</h3>
                 <div class="timeline-item" style="border-left-color: #ea5518;">
                     <h4>JAPAN FOUNDATION · TSUBAKI NIHONGO</h4>
                     <div class="meta"><i class="far fa-calendar-alt"></i> Exam: 2022/11/05</div>
@@ -461,13 +697,13 @@
                         <span class="jft-cat"><i class="fas fa-headphones"></i> 聴解 96%</span>
                         <span class="jft-cat"><i class="fas fa-book-open"></i> 読解 90%</span>
                     </div>
-                    <p style="font-size:0.9rem; margin-top:0.6rem;"><i class="fas fa-check-circle" style="color:#1c6d2e;"></i> 「あたたかい程度の日本語能力水準」— everyday conversation & daily life</p>
+                    <p style="font-size:0.85rem; margin-top:0.6rem;"><i class="fas fa-check-circle" style="color:#1c6d2e;"></i> 「あたたかい程度の日本語能力水準」— everyday conversation & daily life</p>
                 </div>
 
                 <!-- About me section (integrated) -->
-                <div style="margin-top: 2rem; background: #eef4fe; border-radius: 1.5rem; padding: 1.5rem;">
-                    <h3><i class="fas fa-user-alt" style="margin-right: 10px;"></i> about me</h3>
-                    <p style="line-height: 1.6;">Freelance specialist with hands-on experience in funnel building, product research, and Shopify listings. Passion for digital efficiency and e‑commerce. Proven ability to learn fast, collaborate remotely, and deliver structured work. Holds JFT Basic certification (244pts), able to handle everyday Japanese in professional context.</p>
+                <div style="margin-top: 1.5rem; background: #eef4fe; border-radius: 1.5rem; padding: 1.2rem;">
+                    <h3 style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.8rem; font-size: 1.1rem;"><i class="fas fa-user-alt"></i> about me</h3>
+                    <p style="line-height: 1.5; font-size: 0.9rem;">Freelance specialist with hands-on experience in funnel building, product research, and Shopify listings. Passion for digital efficiency and e‑commerce. Proven ability to learn fast, collaborate remotely, and deliver structured work. Holds JFT Basic certification (244pts), able to handle everyday Japanese in professional context.</p>
                 </div>
             </div>
 
@@ -479,7 +715,7 @@
                 <div class="bullet-item">
                     <i class="fas fa-circle" style="font-size: 0.5rem; align-self: center;"></i>
                     <div style="flex:1">
-                        <h4 style="font-size: 1.2rem;">Funnel Builder (Funnelish)</h4>
+                        <h4 style="font-size: 1.1rem;">Funnel Builder (Funnelish)</h4>
                         <div class="meta"><i class="fas fa-calendar-alt"></i> 2023 – 2024 · freelance</div>
                         <div class="work-detail">
                             <p><i class="fas fa-paint-brush"></i> Design and construct high-converting sales funnels using Funnelish platform.</p>
@@ -491,10 +727,10 @@
                 </div>
 
                 <!-- WORK 2: Product Lister / winning product research -->
-                <div class="bullet-item" style="margin-top: 1.5rem;">
+                <div class="bullet-item" style="margin-top: 1.2rem;">
                     <i class="fas fa-circle" style="font-size: 0.5rem; align-self: center;"></i>
                     <div style="flex:1">
-                        <h4 style="font-size: 1.2rem;">Product Lister & e‑commerce research</h4>
+                        <h4 style="font-size: 1.1rem;">Product Lister & e‑commerce research</h4>
                         <div class="meta"><i class="fas fa-calendar-alt"></i> 2025 – 2026 · freelance</div>
                         <div class="work-detail">
                             <p><i class="fas fa-search"></i> Research winning products using Facebook Ads Library & competitive analysis.</p>
@@ -508,18 +744,18 @@
 
                 <!-- small extra note -->
                 <hr>
-                <p style="display: flex; gap: 0.5rem; align-items: center;"><i class="fas fa-check-circle" style="color:#256bb0;"></i> All roles performed as independent freelancer — adaptable, self‑directed, results‑oriented.</p>
+                <p style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.9rem;"><i class="fas fa-check-circle" style="color:#256bb0;"></i> All roles performed as independent freelancer — adaptable, self‑directed, results‑oriented.</p>
             </div>
         </div>
 
         <!-- CONTACT SECTION with form (formsubmit) -->
         <div class="contact-form">
-            <h3 style="margin-bottom: 1.2rem; display: flex; gap: 10px;"><i class="fas fa-paper-plane"></i> send a message</h3>
+            <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; font-size: 1.2rem;"><i class="fas fa-paper-plane"></i> send a message</h3>
             <form action="https://formsubmit.co/andreichristopherdg@gmail.com" method="POST" target="_blank">
                 <!-- formsubmit config: no captcha optional, but keeps it clean -->
                 <input type="hidden" name="_subject" value="New message from resume webpage">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://andrei-resume.pages.dev/thanks"> <!-- dummy, but formsubmit works anyway -->
+                <input type="hidden" name="_next" value="https://andrei-resume.pages.dev/thanks">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your name" required>
@@ -534,7 +770,9 @@
                 <!-- additional honeypot and security (optional) -->
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="false">
-                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send message</button>
+                <div style="display: flex; justify-content: center;">
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send message</button>
+                </div>
                 <div class="signature-note"><i class="fas fa-lock"></i> form · powered by FormSubmit (emails to andreichristopherdg@gmail.com)</div>
             </form>
         </div>
@@ -543,7 +781,5 @@
             <span>© 2025 Andrei Christopher De Guzman · JFT Basic · built with <i class="fas fa-heart" style="color:#b22222;"></i> and animations</span>
         </footer>
     </div>
-
-    <!-- small additional animation for floating elements (optional) -->
 </body>
 </html>
