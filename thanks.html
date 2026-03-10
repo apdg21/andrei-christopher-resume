@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Thank You · Andrei Christopher De Guzman</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9f0fc 0%, #f1f7ff 100%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: bgFade 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes bgFade {
+            0% { background: #e0eaff; }
+            100% { background: #f5f0ff; }
+        }
+
+        .glass-card {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            box-shadow: 0 30px 60px rgba(0, 10, 30, 0.2), 0 10px 30px rgba(0, 20, 40, 0.1), inset 0 1px 2px rgba(255,255,255,0.6);
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .glass-card {
+                padding: 3.5rem 3rem;
+                border-radius: 3rem;
+            }
+        }
+
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1a4972, #2c5b9c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: pulse 2s infinite ease-in-out;
+            box-shadow: 0 15px 30px rgba(26, 73, 114, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 15px 30px rgba(26, 73, 114, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 25px 40px rgba(26, 73, 114, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 15px 30px rgba(26, 73, 114, 0.3); }
+        }
+
+        .icon-circle i {
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(130deg, #162b4d, #2c4875);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        .message {
+            font-size: 1.1rem;
+            color: #1d2b44;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .message {
+                font-size: 1.2rem;
+            }
+        }
+
+        .name-highlight {
+            font-weight: 600;
+            color: #1a4972;
+            background: rgba(255,255,255,0.5);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.8);
+            font-size: 1rem;
+        }
+
+        .btn-return {
+            background: #172e48;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 18px rgba(18, 52, 92, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-decoration: none;
+        }
+
+        .btn-return:hover {
+            background: #1f3c60;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 28px rgba(20, 60, 120, 0.4);
+        }
+
+        .btn-return i {
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .social-links a {
+            color: #2c5b9c;
+            font-size: 1.5rem;
+            transition: all 0.2s;
+            opacity: 0.7;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #3a4a66;
+            opacity: 0.6;
+        }
+
+        .floating-icon {
+            animation: float 4s infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-card">
+        <div class="icon-circle">
+            <i class="fas fa-paper-plane floating-icon"></i>
+        </div>
+        
+        <h1>Thank You!</h1>
+        
+        <div class="name-highlight">
+            <i class="fas fa-envelope" style="margin-right: 6px;"></i> Message Sent
+        </div>
+        
+        <p class="message">
+            Thanks for reaching out! Your message has been sent successfully to <strong>Andrei Christopher De Guzman</strong>. I'll get back to you as soon as possible.
+        </p>
+        
+        <a href="index.html" class="btn-return">
+            <i class="fas fa-arrow-left"></i> Return to Resume
+        </a>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/andrei.c.deguzman" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:andreichristopherdg@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        
+        <div class="footer-note">
+            <i class="fas fa-check-circle" style="color: #1c6d2e;"></i> Your email has been delivered via FormSubmit
+        </div>
+    </div>
+</body>
+</html>
