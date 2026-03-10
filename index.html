@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrei Christopher De Guzman · resume</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts (Inter + Fallback) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9f0fc 0%, #f1f7ff 100%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: bgFade 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes bgFade {
+            0% { background: #e0eaff; }
+            100% { background: #f5f0ff; }
+        }
+
+        .glass-card {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 3.5rem 3.5rem 3rem 3rem;
+            box-shadow: 0 30px 60px rgba(0, 10, 30, 0.2), 0 10px 30px rgba(0, 20, 40, 0.1), inset 0 1px 2px rgba(255,255,255,0.6);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: all 0.3s;
+        }
+
+        /* profile header row */
+        .profile-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .avatar-frame {
+            flex-shrink: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+            background: linear-gradient(135deg, #c0d9f5, #a7c0f0);
+            box-shadow: 0 25px 35px -10px rgba(46, 91, 154, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: morph 8s ease-in-out infinite;
+            border: 3px solid white;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%; }
+            50% { border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%; }
+            100% { border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%; }
+        }
+
+        .avatar-placeholder {
+            font-size: 5rem;
+            color: white;
+            filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+        }
+
+        .name-title {
+            flex: 1;
+        }
+
+        .name-title h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(130deg, #162b4d, #2c4875);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .badge-jft {
+            background: white;
+            border-radius: 100px;
+            padding: 0.4rem 1.5rem 0.4rem 1rem;
+            box-shadow: 0 6px 14px rgba(0, 30, 60, 0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.8);
+            animation: badgeGlow 3s infinite;
+        }
+
+        @keyframes badgeGlow {
+            0% { box-shadow: 0 6px 14px rgba(0, 60, 120, 0.2); }
+            50% { box-shadow: 0 12px 24px rgba(46, 112, 199, 0.3); }
+            100% { box-shadow: 0 6px 14px rgba(0, 60, 120, 0.2); }
+        }
+
+        .score-highlight {
+            background: #11273f;
+            color: white;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+            margin: 1.8rem 0 2rem 0;
+            background: rgba(255,255,255,0.5);
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid white;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #1d2b44;
+        }
+
+        .contact-info i {
+            color: #2c5b9c;
+            width: 1.4rem;
+            font-size: 1.2rem;
+        }
+
+        /* skills / chips */
+        .skills-section {
+            margin: 2rem 0 2.5rem 0;
+        }
+
+        .skills-section h3, .section-header {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #122b44;
+            border-bottom: 2px solid rgba(60, 110, 180, 0.3);
+            padding-bottom: 0.4rem;
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+        }
+
+        .chip {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(3px);
+            padding: 0.6rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 500;
+            box-shadow: 0 5px 12px rgba(0, 20, 30, 0.1);
+            border: 1px solid rgba(255,255,255,0.7);
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .chip:hover {
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: 0 15px 22px rgba(50, 80, 140, 0.2);
+        }
+
+        /* two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.4fr 0.9fr;
+            gap: 2rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .two-col { grid-template-columns: 1fr; }
+            .glass-card { padding: 1.8rem; }
+        }
+
+        .education-card, .work-card {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 12px 25px -12px rgba(0,32,64,0.2);
+            transition: transform 0.25s;
+        }
+
+        .education-card:hover, .work-card:hover {
+            transform: scale(1.01);
+            background: rgba(255,255,255,0.7);
+        }
+
+        .timeline-item {
+            margin: 1.5rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+            border-left: 3px solid #3466a3;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f263f;
+        }
+
+        .timeline-item .meta {
+            font-weight: 500;
+            color: #3a5478;
+            margin: 0.2rem 0 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .jft-result-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 0.8rem 1.2rem;
+            background: rgba(0,0,0,0.02);
+            border-radius: 1.4rem;
+            padding: 1rem 0;
+        }
+
+        .jft-cat {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 0.7rem 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            font-weight: 500;
+            border: 1px solid #dbe5f5;
+        }
+
+        .total-score-big {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #082032;
+            background: linear-gradient(145deg, #ecf5ff, #ffffff);
+            display: inline-block;
+            padding: 0.2rem 1.5rem;
+            border-radius: 100px;
+            margin: 0.6rem 0 1rem;
+            border: 1px solid white;
+        }
+
+        /* work details */
+        .work-detail {
+            margin: 1rem 0 1.8rem 1rem;
+        }
+
+        .work-detail p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .work-detail i {
+            color: #2b5797;
+            width: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 1rem 0;
+        }
+
+        .bullet-item i {
+            color: #2e5f9e;
+            font-size: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        /* contact form */
+        .contact-form {
+            margin-top: 2.5rem;
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 3rem;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            flex: 1 1 200px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.8);
+            font-family: 'Inter', sans-serif;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            box-shadow: 0 6px 14px rgba(0,10,20,0.05);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #577fbd;
+            background: white;
+            box-shadow: 0 12px 24px rgba(45, 100, 180, 0.15);
+        }
+
+        textarea {
+            border-radius: 2rem;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: #172e48;
+            color: white;
+            border: none;
+            padding: 1rem 2.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 18px rgba(18, 52, 92, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-submit:hover {
+            background: #1f3c60;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 28px rgba(20, 60, 120, 0.4);
+        }
+
+        .signature-note {
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+            color: #3a4a66;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #b0c9f0, transparent);
+            margin: 1.2rem 0;
+        }
+
+        .floating-icon {
+            animation: float 4s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-card">
+        <!-- Profile header with image placeholder -->
+        <div class="profile-row">
+            <div class="avatar-frame">
+                <div class="avatar-placeholder"><img src="profile.jpg"></i></div>
+            </div>
+            <div class="name-title">
+                <h1>ANDREI CHRISTOPHER<br>DE GUZMAN</h1>
+                <div class="badge-jft">
+                    <i class="fas fa-certificate" style="color:#1a4972;"></i> 
+                    <span>JFT Basic · Passed 244/250</span>
+                    <span class="score-highlight"><i class="fas fa-star"></i> 200基準</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact row from details -->
+        <div class="contact-info">
+            <span><i class="fas fa-phone-alt"></i> +63 905 130 0708</span>
+            <span><i class="fas fa-map-marker-alt"></i> Phase 1 West, Camella Springville, Molino Bacoor</span>
+            <span><i class="fas fa-envelope"></i> andreichristopherdg@gmail.com</span>
+        </div>
+
+        <!-- Skills chip (fast learner etc) -->
+        <div class="skills-section">
+            <h3><i class="fas fa-cog floating-icon"></i> core skills</h3>
+            <div class="chip-list">
+                <span class="chip">Fast learner</span>
+                <span class="chip">Time management</span>
+                <span class="chip">Team player</span>
+                <span class="chip">Flexible</span>
+                <span class="chip">Hardworking</span>
+                <span class="chip">Funnel builder</span>
+                <span class="chip">Product research</span>
+                <span class="chip">Shopify listing</span>
+            </div>
+        </div>
+
+        <!-- Two columns: left (education + JFT result), right (work exp) -->
+        <div class="two-col">
+            <!-- LEFT: education & JFT -->
+            <div class="education-card">
+                <h3 class="section-header"><i class="fas fa-graduation-cap"></i> education</h3>
+                <div class="timeline-item">
+                    <h4>Accountancy, Business & Management</h4>
+                    <div class="meta"><i class="far fa-calendar-alt"></i> August 2019 – June 2021</div>
+                    <p style="font-weight: 500; color:#1d3f6e;">UNIVERSITY OF PERPETUAL HELP SYSTEM DALTA - MOLINO CAMPUS</p>
+                </div>
+
+                <h3 class="section-header" style="margin-top: 2rem;"><i class="fas fa-language"></i> Japanese proficiency</h3>
+                <div class="timeline-item" style="border-left-color: #ea5518;">
+                    <h4>JAPAN FOUNDATION · TSUBAKI NIHONGO</h4>
+                    <div class="meta"><i class="far fa-calendar-alt"></i> Exam: 2022/11/05</div>
+                    <div class="total-score-big"><i class="fas fa-medal"></i> 244/250</div>
+                    <div class="jft-result-grid">
+                        <span class="jft-cat"><i class="fas fa-font"></i> 文字と語彙 92%</span>
+                        <span class="jft-cat"><i class="fas fa-comments"></i> 会話と表現 88%</span>
+                        <span class="jft-cat"><i class="fas fa-headphones"></i> 聴解 96%</span>
+                        <span class="jft-cat"><i class="fas fa-book-open"></i> 読解 90%</span>
+                    </div>
+                    <p style="font-size:0.9rem; margin-top:0.6rem;"><i class="fas fa-check-circle" style="color:#1c6d2e;"></i> 「あたたかい程度の日本語能力水準」— everyday conversation & daily life</p>
+                </div>
+
+                <!-- About me section (integrated) -->
+                <div style="margin-top: 2rem; background: #eef4fe; border-radius: 1.5rem; padding: 1.5rem;">
+                    <h3><i class="fas fa-user-alt" style="margin-right: 10px;"></i> about me</h3>
+                    <p style="line-height: 1.6;">Freelance specialist with hands-on experience in funnel building, product research, and Shopify listings. Passion for digital efficiency and e‑commerce. Proven ability to learn fast, collaborate remotely, and deliver structured work. Holds JFT Basic certification (244pts), able to handle everyday Japanese in professional context.</p>
+                </div>
+            </div>
+
+            <!-- RIGHT: work experience (freelance) with detailed required tasks -->
+            <div class="work-card">
+                <h3 class="section-header"><i class="fas fa-briefcase"></i> freelance experience</h3>
+                
+                <!-- WORK 1: Funnel builder -->
+                <div class="bullet-item">
+                    <i class="fas fa-circle" style="font-size: 0.5rem; align-self: center;"></i>
+                    <div style="flex:1">
+                        <h4 style="font-size: 1.2rem;">Funnel Builder (Funnelish)</h4>
+                        <div class="meta"><i class="fas fa-calendar-alt"></i> 2022 – present · freelance</div>
+                        <div class="work-detail">
+                            <p><i class="fas fa-paint-brush"></i> Design and construct high-converting sales funnels using Funnelish platform.</p>
+                            <p><i class="fas fa-chart-line"></i> Implement upsell / downsell flows, integrate with email marketing & payment gateways.</p>
+                            <p><i class="fas fa-file-alt"></i> Build opt-in pages, bridge pages, and order bumps; A/B test funnel performance.</p>
+                            <p><i class="fas fa-tachometer-alt"></i> Optimize load speed and mobile responsiveness to increase conversion rates.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WORK 2: Product Lister / winning product research -->
+                <div class="bullet-item" style="margin-top: 1.5rem;">
+                    <i class="fas fa-circle" style="font-size: 0.5rem; align-self: center;"></i>
+                    <div style="flex:1">
+                        <h4 style="font-size: 1.2rem;">Product Lister & e‑commerce research</h4>
+                        <div class="meta"><i class="fas fa-calendar-alt"></i> 2021 – present · freelance</div>
+                        <div class="work-detail">
+                            <p><i class="fas fa-search"></i> Research winning products using Facebook Ads Library & competitive analysis.</p>
+                            <p><i class="fas fa-tags"></i> Create compelling product listings on Shopify: copywriting, high-res images, SEO optimization.</p>
+                            <p><i class="fas fa-box-open"></i> Track trending items, monitor ad engagement, and prepare listing bundles.</p>
+                            <p><i class="fas fa-chart-pie"></i> Analyse competitor pricing and positioning to refine product pages.</p>
+                            <p><i class="fas fa-ad"></i> Coordinate with ad buyers to align funnel offers with research insights.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- small extra note -->
+                <hr>
+                <p style="display: flex; gap: 0.5rem; align-items: center;"><i class="fas fa-check-circle" style="color:#256bb0;"></i> All roles performed as independent freelancer — adaptable, self‑directed, results‑oriented.</p>
+            </div>
+        </div>
+
+        <!-- CONTACT SECTION with form (formsubmit) -->
+        <div class="contact-form">
+            <h3 style="margin-bottom: 1.2rem; display: flex; gap: 10px;"><i class="fas fa-paper-plane"></i> send a message</h3>
+            <form action="https://formsubmit.co/andreichristopherdg@gmail.com" method="POST" target="_blank">
+                <!-- formsubmit config: no captcha optional, but keeps it clean -->
+                <input type="hidden" name="_subject" value="New message from resume webpage">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://andrei-resume.pages.dev/thanks"> <!-- dummy, but formsubmit works anyway -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email address" required>
+                    </div>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <textarea name="message" rows="4" placeholder="Hello Andrei, I'd like to talk about ..." required></textarea>
+                </div>
+                <!-- additional honeypot and security (optional) -->
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send message</button>
+                <div class="signature-note"><i class="fas fa-lock"></i> form · powered by FormSubmit (emails to andreichristopherdg@gmail.com)</div>
+            </form>
+        </div>
+
+        <footer>
+            <span>© 2025 Andrei Christopher De Guzman · JFT Basic · built with <i class="fas fa-heart" style="color:#b22222;"></i> and animations</span>
+        </footer>
+    </div>
+
+    <!-- small additional animation for floating elements (optional) -->
+</body>
+</html>
